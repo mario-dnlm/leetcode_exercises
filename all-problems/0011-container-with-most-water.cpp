@@ -9,12 +9,14 @@ using namespace std;
 class Solution {
     public: 
     int maxArea(vector<int>& height) {
-        int area = 0;
         const int WIDTH = height.size();
-        int minHeight = height[0] > height[WIDTH-1] ? height[0] : height[WIDTH-1];
-        for (int width = WIDTH; width > 0; width--) {
-            for (int i=0; i + width <= WIDTH; i++) {
-                int minH = (height[i] < height[i + width-1]) ? height[i] : height[i + width - 1];
+        int minHeight = height[0] < height[WIDTH-1] ? height[0] : height[WIDTH-1];
+        int area = minHeight * WIDTH;
+        
+
+        for (int width = WIDTH-1; width > 0; width--) {
+            for (int i=0; i + width < WIDTH; i++) {
+                int minH = (height[i] < height[i + width]) ? height[i] : height[i + width];
                 if (minH > minHeight) {
                     minHeight = minH;
                     if (area < minH * width) {
