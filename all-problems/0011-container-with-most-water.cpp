@@ -13,6 +13,7 @@ class Solution {
         int minHeight = height[0] < height[WIDTH-1] ? height[0] : height[WIDTH-1];
         int area = minHeight * WIDTH;
         
+        
 
         for (int width = WIDTH-1; width > 0; width--) {
             for (int i=0; i + width < WIDTH; i++) {
