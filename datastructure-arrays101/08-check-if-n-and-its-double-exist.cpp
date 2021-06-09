@@ -6,6 +6,18 @@ using namespace std;
 
 class Solution {
 public:
+    //================ sample 0 ms submission ========================
+    bool checkIfExist_ver00ms(vector<int>& arr) {
+        sort(arr.begin(),arr.end());
+        for(int i=0;i<arr.size();i++)
+        {
+            if((find((arr.begin()),arr.end(),2*arr[i])!=arr.end())&&((find((arr.begin()),arr.end(),2*arr[i])!=arr.begin()+i)))
+                return true;
+        }
+        return false;
+    }    
+    
+    //================ my trial 8 ms submission ========================
     bool checkItExist(vector<int>& arr) {
         vector<int> arr2(arr);
         sort(arr2.begin(),arr2.end());
